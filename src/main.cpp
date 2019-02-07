@@ -1768,7 +1768,10 @@ bool static Reorganize(CTxDB& txdb, CBlockIndex* pindexNew)
 
     // Delete redundant memory transactions that are in the connected branch
     BOOST_FOREACH(CTransaction& tx, vDelete)
+    {
         mempool.remove(tx);
+	mempool.removeConflicts(tx);
+    }
 
     printf("REORGANIZE: done\n");
 
