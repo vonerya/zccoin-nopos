@@ -985,8 +985,8 @@ int64 nNfactorFixTime = 1514174400;
 unsigned char GetNfactor(int64 nTimestamp) {
     int l = 0;
     if (nTimestamp <= nChainStartTime)
-        return minNfactor;
-	if (nTimestamp >= nNfactorFixTime)
+        return minNfactor;  
+    if (nTimestamp >= nNfactorFixTime)
         return fixedNfactor;
     int64 s = nTimestamp - nChainStartTime;
     while ((s >> 1) > 3) {
